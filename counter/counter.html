@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<style>
+    body {
+        
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .counter-container {
+        text-align: center;      
+    }
+
+    #counter {
+        font-size: 2em;
+        margin: 30px;
+    }
+
+    button {
+        font-size: 1em;
+        padding: 5px 10px;
+        margin: 0px 10px 5px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .buttons{
+        display: flex;
+    }
+
+    #increment {
+        background-color: #8bf78e;
+        color: white;
+        font-size: 30px;
+       
+    }
+
+    #decrement {
+        background-color: #fb8c84;
+        color: white;
+        font-size: 50px;
+    }
+
+    #reset {
+        background-color: #99aaffe7;        
+    }
+
+</style>
+
+<body>
+    <div class="counter-container">
+        <h1>Counter App </h1>
+        <div class="buttons">
+            <button id="decrement">-</button>
+            <div id="counter">0</div>
+            <button id="increment">+</button>
+        </div>
+        <button id="reset">Reset</button>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let counter = 0;
+
+            const counterDisplay = document.getElementById('counter');
+            const incrementButton = document.getElementById('increment');
+            const decrementButton = document.getElementById('decrement');
+            const resetButton = document.getElementById('reset');
+
+            incrementButton.addEventListener('click', () => {
+                counter++;
+                updateCounterDisplay();
+            });
+
+            decrementButton.addEventListener('click', () => {
+                counter--;
+                updateCounterDisplay();
+            });
+
+            resetButton.addEventListener('click', () => {
+                counter = 0;
+                updateCounterDisplay();
+            });
+
+            function updateCounterDisplay() {
+                counterDisplay.textContent = counter;
+            }
+        });
+    </script>
+</body>
+
+</html>
